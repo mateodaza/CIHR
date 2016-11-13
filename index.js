@@ -17,6 +17,7 @@ server.register(plugins, function() {
     method: 'GET',
     path: '/{path*}',
     handler: {
+      directory: {
         path: './public',
         listing: false,
         index: true
