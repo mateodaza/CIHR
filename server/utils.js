@@ -27,9 +27,13 @@ module.exports.BasePlugin = class BasePlugin {
     this._server = server;
   }
 
+  getRoutes () {
+    return [];
+  }
+
   registerRoutes () {
     if (this.getRoutes) {
-      this._server.route(this.getRoutes() || []);
+      this._server.route(this.getRoutes());
     } else {
       throw new Error('getRoutes no existe en la instancia del objeto');
     }

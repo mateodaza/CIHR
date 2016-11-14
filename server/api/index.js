@@ -2,6 +2,7 @@ const API = (server, options, next) => {
   // AQUI VAN AGREGANDO SUS MODULOS
   const plugins = [
     require('./example'),
+    require('./database'),
   ];
 
   // ESTO DE ABAJO NO SE TOCA
