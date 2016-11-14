@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 const { autobind, BasePlugin } = require('../utils');
 
 class Example extends BasePlugin {
@@ -16,9 +17,20 @@ class Example extends BasePlugin {
       auth.credentials: Si tenemos login, aqui estaran los datos de autenticacion de la persona,
       query: Querystring,
   */
-  
+
   getExample (request, reply) {
     reply(null, 'Example succesful');
+  }
+
+  getExamplePath (request, reply) {
+    reply(null, request.params.examplePath);
+  }
+
+  exampleForm (request, reply) {
+    const firstname = request.payload.firstname;
+    const lastname = request.payload.lastname;
+    console.log('Se hace algo con', firstname, 'y', lastname);
+    reply(null, 200);
   }
 
   // Retorna un arreglo de rutas para el servidor
@@ -28,6 +40,22 @@ class Example extends BasePlugin {
         method: 'GET',
         path: '/example',
         handler: this.getExample,
+      },
+      {
+        method: 'GET',
+        path: '/example/{examplePath}',
+        handler: this.getExamplePath,
+      },
+      {
+        method: 'POST',
+        path: '/example/form',
+        config: {
+          payload: {
+            parse: true,
+            override: 'application/json',
+          },
+        },
+        handler: this.exampleForm,
       },
     ];
   }

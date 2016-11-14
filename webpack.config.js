@@ -10,7 +10,7 @@ module.exports = {
     extensions: ['', '.js', '.jsx', '.json'],
   },
 
-  entry: path.join(__dirname, 'public', 'main.js'),
+  entry: ['es6-promise', 'whatwg-fetch', path.join(__dirname, 'public', 'main.js')],
   output: {
     path: path.join(__dirname, 'public', 'dist'),
     filename: 'bundle.js',
