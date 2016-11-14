@@ -1,22 +1,46 @@
-var path = require('path');
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  entry: path.resolve(__dirname, './public/main.js'),
+  target: 'web',
+  devtool: 'source-map',
+
+  resolve: {
+    root: path.join(__dirname, 'public'),
+    extensions: ['', '.js', '.jsx', '.json'],
+  },
+
+  entry: path.join(__dirname, 'public', 'main.js'),
   output: {
-    path: path.resolve(__dirname, './public/dist'),
-    filename: 'bundle.js'
+    path: path.join(__dirname, 'public', 'dist'),
+    filename: 'bundle.js',
   },
 
   module: {
     loaders: [
       {
-        test: /\.js$/,
-        exclude: /node_modules/,
-        loader: 'babel-loader',
-        query: {
-          presets: ['react','es2015']
-        }
-      }
-    ]
-  }
+        test    : /\.(js|jsx)$/,
+        exclude : /node_modules/,
+        loader  : 'babel',
+        query   : {
+            cacheDirectory : true,
+            plugins        : ['transform-runtime'],
+            presets        : ['es2015', 'react', 'stage-0'],
+        },
+      },
+    ],
+  },
+
+  plugins : [
+    new HtmlWebpackPlugin({
+      template : path.join(__dirname, 'public', 'index.html'),
+      hash     : false,
+      favicon  : path.join(__dirname, 'public', 'favicon.ico'),
+      filename : 'index.html',
+      inject   : 'body',
+      minify   : {
+        collapseWhitespace : true,
+      },
+    }),
+  ],
 };
