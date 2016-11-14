@@ -6,6 +6,7 @@ class Example extends BasePlugin {
   constructor (server) {
     super(server); // ESTAS DOS LINEAS SON NECESARIAS
     autobind(this); // ESTO ES NECESARIO
+    this.server = server;
   }
 
   /*
@@ -33,6 +34,24 @@ class Example extends BasePlugin {
     reply(null, 200);
   }
 
+  exampleDBCall (request, reply) {
+    this.server.plugins.database.query({
+      sql: 'SELECT funcionario_est FROM Funcionario WHERE funcionario_cod=? AND funcionario_pwd=?;',
+      timeout: 5000,
+      values: ['200045678', '123456'],
+    }, (err, rows, fields) => {
+      if (err) {
+        reply(new Error(err));
+      } else {
+        if( rows[0].funcionario_est === 1){
+          reply(null, 'EL usuario puede logear');
+        }else{
+          reply(null, 'el usuario no puede logear');
+        }
+      }
+    });
+  }
+
   // Retorna un arreglo de rutas para el servidor
   getRoutes () {
     return [
@@ -57,13 +76,18 @@ class Example extends BasePlugin {
         },
         handler: this.exampleForm,
       },
+      {
+        method: 'GET',
+        path: '/example/database-call',
+        handler: this.exampleDBCall,
+      },
     ];
   }
 }
 
 const ExamplePlugin = (server, options, next) => {
   // _server es el mismo server de arriba
-  server.dependency([ /* Lista de nombre de modulos de los que se depende, por ejemplo 'database' */ ],
+  server.dependency([ 'database'/* Lista de nombre de modulos de los que se depende, por ejemplo 'database' */ ],
     (_server, finish) => {
       const example = new Example(server);
       // .registerRoutes es un metodo de BasePlugin que toma las rutas definidas en
