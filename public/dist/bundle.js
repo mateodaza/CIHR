@@ -78,6 +78,10 @@
 	
 	var _Home2 = _interopRequireDefault(_Home);
 	
+	var _FormExample = __webpack_require__(272);
+	
+	var _FormExample2 = _interopRequireDefault(_FormExample);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	(0, _reactDom.render)(_react2.default.createElement(
@@ -97,7 +101,8 @@
 	      { path: '/abouts', component: _Abouts2.default },
 	      _react2.default.createElement(_reactRouter.Route, { path: '/abouts/:userName/:repoName', component: _About2.default })
 	    )
-	  )
+	  ),
+	  _react2.default.createElement(_reactRouter.Route, { path: '/', component: _FormExample2.default })
 	), document.getElementById('app'));
 
 /***/ },
@@ -27027,6 +27032,10 @@
 	
 	var _NavLink2 = _interopRequireDefault(_NavLink);
 	
+	var _FormExample = __webpack_require__(272);
+	
+	var _FormExample2 = _interopRequireDefault(_FormExample);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	exports.default = _react2.default.createClass({
@@ -27038,8 +27047,9 @@
 	      _react2.default.createElement(
 	        'h1',
 	        null,
-	        'React Router Tutorial'
+	        'React Router Tutorial '
 	      ),
+	      _react2.default.createElement(_FormExample2.default, null),
 	      _react2.default.createElement(
 	        'ul',
 	        { role: 'nav' },
@@ -27242,6 +27252,53 @@
 	    );
 	  }
 	}); // modules/Home.js
+
+/***/ },
+/* 272 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = _react2.default.createClass({
+	  displayName: "FormExample",
+	  render: function render() {
+	    return _react2.default.createElement(
+	      "div",
+	      null,
+	      "Name: ",
+	      _react2.default.createElement("input", { type: "text", name: "firstname" }),
+	      " ",
+	      _react2.default.createElement("br", null),
+	      _react2.default.createElement("br", null),
+	      "LastName: ",
+	      _react2.default.createElement("input", { type: "text", name: "lastname" }),
+	      " ",
+	      _react2.default.createElement("br", null),
+	      _react2.default.createElement("br", null),
+	      _react2.default.createElement(
+	        "button",
+	        { "class": "button button-blue", name: "submit_button" },
+	        _react2.default.createElement(
+	          "b",
+	          null,
+	          "submit"
+	        )
+	      ),
+	      _react2.default.createElement("br", null),
+	      _react2.default.createElement("br", null)
+	    );
+	  }
+	});
 
 /***/ }
 /******/ ]);

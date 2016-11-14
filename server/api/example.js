@@ -16,6 +16,7 @@ class Example extends BasePlugin {
       auth.credentials: Si tenemos login, aqui estaran los datos de autenticacion de la persona,
       query: Querystring,
   */
+  
   getExample (request, reply) {
     reply(null, 'Example succesful');
   }

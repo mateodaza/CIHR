@@ -7,6 +7,7 @@ import Repos from './react_components/Repos';
 import Repo from './react_components/Repo';
 import About from './react_components/About';
 import Home from './react_components/Home';
+import Form from './react_components/FormExample';
 
 render(
   <Router history={browserHistory}>
@@ -18,6 +19,8 @@ render(
       <Route path="/abouts" component={Abouts}>
         <Route path="/abouts/:userName/:repoName" component={About}/>
       </Route>
+    </Route>
+    <Route path="/" component={Form}>
     </Route>
   </Router>,
   document.getElementById('app')
