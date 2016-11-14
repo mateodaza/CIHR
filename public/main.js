@@ -20,7 +20,7 @@ render(
         <Route path="/abouts/:userName/:repoName" component={About}/>
       </Route>
     </Route>
-    <Route path="/" component={Form}>
+    <Route path="/form" component={Form}>
     </Route>
   </Router>,
   document.getElementById('app')

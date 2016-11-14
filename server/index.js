@@ -10,7 +10,7 @@ const manifest = {
   },
   connections: [
     { port: 80, labels: ['web'] },
-    { port: 8080, labels: ['api']},
+    { port: 8080, labels: ['api'], routes: { cors: { origin: ['*'] } }},
   ],
   registrations: [
     { plugin: './web', options: { select: 'web' } },
