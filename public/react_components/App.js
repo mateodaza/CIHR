@@ -1,29 +1,19 @@
 import React from 'react'
-import { render } from 'react-dom'
-import { Router, Route, browserHistory, IndexRoute } from 'react-router'
-import App from './react_components/App'
-import Abouts from './react_components/Abouts'
-import Repos from './react_components/Repos'
-import Repo from './react_components/Repo'
-import About from './react_components/About'
-import Home from './react_components/Home'
+import { Link } from 'react-router'
+import NavLink from './NavLink'
 
-class App extends Component {
-
+export default React.createClass({
   render() {
-    return   <Router history={browserHistory}>
-                <Route path="/" component={App}>
-                  <IndexRoute component={Home}/>
-                    <Route path="/repos" component={Repos}>
-                        <Route path="/repos/:userName/:repoName" component={Repo}/>
-                    </Route>
-                    <Route path="/abouts" component={Abouts}>
-                        <Route path="/abouts/:userName/:repoName" component={About}/>
-                    </Route>
-                </Route>
-              </Router>
+    return (
+      <div>
+        <h1>React Router Tutorial</h1>
+        <ul role="nav">
+          <li><NavLink to="/abouts">Abouts</NavLink></li>
+          <li><NavLink to="/repos">Repos</NavLink></li>
+          <li><NavLink to="/" onlyActiveOnIndex={true}>Home</NavLink></li>
+        </ul>
+        {this.props.children}
+      </div>
+    )
   }
-
-}
-
-export default App
+})
