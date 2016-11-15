@@ -18,7 +18,7 @@ export default React.createClass({
 
   handleSubmit (evt) {
     evt.preventDefault();
-    fetch('http://localhost:8080/api/v1/login/form', {
+    fetch('http://localhost/api/v1/login/form', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -31,6 +31,7 @@ export default React.createClass({
     .then(response => {
       if (response.ok) {
         console.log('OK');
+        browserHistory.push('/abouts');
       } else {
         throw new Error(response);
       }

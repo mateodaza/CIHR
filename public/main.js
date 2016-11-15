@@ -13,7 +13,6 @@ render(
   <Router history={browserHistory}>
     <Route path="/" component={App}>
       <IndexRoute component={Home}/>
-       {/*
           <Route path="/repos" component={Repos}>
             <Route path="/repos/:userName/:repoName" component={Repo}/>
           </Route>
@@ -22,7 +21,6 @@ render(
             <Route path="/abouts/:userName/:repoName" component={About}/>
           </Route>
 
-        */}
           <Route path="/login/form" component={Form}>
           </Route>
 
