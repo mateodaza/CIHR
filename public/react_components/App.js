@@ -5,11 +5,7 @@ export default React.createClass({
   render() {
     return (
       <div>
-        <h1>Children's International Recursos Humanos</h1>
-        <ul role="nav">
-          <li><NavLink to="/login/form">Log in</NavLink></li>
-          <li><NavLink to="/" onlyActiveOnIndex={true}>Home</NavLink></li>
-        </ul>
+        <h1>Recursos Humanos</h1>
         {this.props.children}
       </div>
     )
