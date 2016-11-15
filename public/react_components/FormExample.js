@@ -7,7 +7,7 @@ export default React.createClass({
     return (
               <form onSubmit={this.handleSubmit}>
                     Codigo: <input type="text" name="codigo" /> <br/><br/>
-                    Password: <input type="text" name="password" /> <br/><br/>
+                  Password: <input type="password" name="password" /> <br/><br/>
                 <button className='button button-blue' name="submit_button">
                     <b>submit</b>
                   </button>
@@ -18,7 +18,7 @@ export default React.createClass({
 
   handleSubmit (evt) {
     evt.preventDefault();
-    fetch('http://localhost/api/v1/login/form', {
+    fetch('http://localhost:8080/api/v1/login/form', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -30,6 +30,7 @@ export default React.createClass({
     })
     .then(response => {
       if (response.ok) {
+        response.json().then(console.log);
         console.log('OK');
         browserHistory.push('/abouts');
       } else {

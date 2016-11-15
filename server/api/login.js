@@ -18,16 +18,23 @@ class Login extends BasePlugin {
     }, (err, rows, fields) => {
       if (err) {
         reply(new Error(err));
-      } else {
-        if( rows[0].funcionario_est === 1){
-          reply(null, 'EL usuario puede logear');
-        }else{
-          reply(null, 'el usuario no puede logear');
-        }
+        return;
       }
+      if (rows.length === 0) {
+        reply(new Error('El usuario no existe'));
+        return;
+      }
+      const user = rows[0];
+      if (user.funcionario_est === 0) {
+        reply(new Error('el usuario no puede logear'));
+        return;
+      }
+      reply(null, 'EL usuario puede logear');
+      return;
     });
-
   }
+
+
 
   // Retorna un arreglo de rutas para el servidor
   getRoutes () {
@@ -42,7 +49,7 @@ class Login extends BasePlugin {
           },
         },
         handler: this.loginverification,
-      }
+      },
     ];
   }
 }

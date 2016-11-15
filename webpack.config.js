@@ -37,7 +37,7 @@ module.exports = {
       hash     : false,
       favicon  : path.join(__dirname, 'public', 'favicon.ico'),
       filename : 'index.html',
-      inject   : 'body',
+      inject   : false,
       minify   : {
         collapseWhitespace : true,
       },
