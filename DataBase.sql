@@ -20,7 +20,7 @@ USE `DataBase` ;
 -- -----------------------------------------------------
 -- Table `DataBase`.`Archivo_Tipo`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `DataBase`.`Archivo_Tipo` (
+  CREATE TABLE IF NOT EXISTS `DataBase`.`Archivo_Tipo` (
   `codigo` INT NOT NULL,
   `nombre` VARCHAR(45) NULL,
   PRIMARY KEY (`codigo`))
@@ -1111,7 +1111,7 @@ USE `DataBase`$$
 CREATE PROCEDURE eval_companeros (in departamento_codigo int)
 BEGIN
     SELECT Persona_Natural.apellido_1 + ' ' + Persona_Natural.nombre_1 as Funcionario, Cargo.nombre as Cargo, Contrato.departamento_codigo
-	FROM Persona_Natural, Cargo, Contrato 
+	FROM Persona_Natural, Cargo, Contrato
 	WHERE (Persona_Natural.info_contacto_codigo=Informacion_Contacto.info_contacto_codigo and Informacion_Contacto.info_contacto_codigo=Persona_Juridica.info_contacto_codigo);
 END$$
 
@@ -1123,7 +1123,7 @@ DELIMITER ;
 DROP TABLE IF EXISTS `DataBase`.`Evaluaciones_Resultado`;
 USE `DataBase`;
 CREATE  OR REPLACE VIEW `Evaluaciones_Resultado` AS
-    SELECT 
+    SELECT
         funcionario.codigo AS funcionario_codigo,
         evaluacion.codigo,
         AVG(avg_autoevaluacion) AS PromedioAutoevaluacion,
@@ -1138,7 +1138,7 @@ CREATE  OR REPLACE VIEW `Evaluaciones_Resultado` AS
 DROP TABLE IF EXISTS `DataBase`.`CargosPorDepartamento`;
 USE `DataBase`;
 CREATE  OR REPLACE VIEW `CargosPorDepartamento` AS
-    SELECT 
+    SELECT
         dbo.Departamento.departamento_codigo_superior,
         dbo.Departamento.codigo,
         dbo.Departamento.nombre,

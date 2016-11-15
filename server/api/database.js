@@ -6,7 +6,7 @@ const DatabasePlugin = (server, options, next) => {
     host     : 'localhost',
     user     : 'root',
     password : '951401',
-    database : 'proyect',
+    database : 'DataBase',
   });
 
   connection.connect(err => {
