@@ -5,11 +5,9 @@ export default React.createClass({
   render() {
     return (
       <div>
-        <h1>React Router Tutorial </h1>
+        <h1>Children's International Recursos Humanos</h1>
         <ul role="nav">
-          <li><NavLink to="/abouts">Abouts</NavLink></li>
-          <li><NavLink to="/repos">Repos</NavLink></li>
-          <li><NavLink to="/form">Formulario</NavLink></li>
+          <li><NavLink to="/form">Log in</NavLink></li>
           <li><NavLink to="/" onlyActiveOnIndex={true}>Home</NavLink></li>
         </ul>
         {this.props.children}

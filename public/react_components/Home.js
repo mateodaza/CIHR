@@ -3,6 +3,6 @@ import React from 'react'
 
 export default React.createClass({
   render() {
-    return <div>Seleccione Opcion</div>
+    return <div>    <h> Bienvenido  </h>   </div>
   }
 })

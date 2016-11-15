@@ -13,15 +13,21 @@ render(
   <Router history={browserHistory}>
     <Route path="/" component={App}>
       <IndexRoute component={Home}/>
-      <Route path="/repos" component={Repos}>
-        <Route path="/repos/:userName/:repoName" component={Repo}/>
-      </Route>
-      <Route path="/abouts" component={Abouts}>
-        <Route path="/abouts/:userName/:repoName" component={About}/>
-      </Route>
+       {/*
+          <Route path="/repos" component={Repos}>
+            <Route path="/repos/:userName/:repoName" component={Repo}/>
+          </Route>
+
+          <Route path="/abouts" component={Abouts}>
+            <Route path="/abouts/:userName/:repoName" component={About}/>
+          </Route>
+          
+        */}
+          <Route path="/form" component={Form}>
+          </Route>
+
     </Route>
-    <Route path="/form" component={Form}>
-    </Route>
+
   </Router>,
   document.getElementById('app')
 );
