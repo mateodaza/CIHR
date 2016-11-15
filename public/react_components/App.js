@@ -7,7 +7,7 @@ export default React.createClass({
       <div>
         <h1>Children's International Recursos Humanos</h1>
         <ul role="nav">
-          <li><NavLink to="/form">Log in</NavLink></li>
+          <li><NavLink to="/login/form">Log in</NavLink></li>
           <li><NavLink to="/" onlyActiveOnIndex={true}>Home</NavLink></li>
         </ul>
         {this.props.children}

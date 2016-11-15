@@ -4,7 +4,7 @@ import { browserHistory } from 'react-router';
 
 export default React.createClass({
   render() {
-    return (  
+    return (
               <form onSubmit={this.handleSubmit}>
                     Codigo: <input type="text" name="codigo" /> <br/><br/>
                     Password: <input type="text" name="password" /> <br/><br/>
@@ -18,7 +18,7 @@ export default React.createClass({
 
   handleSubmit (evt) {
     evt.preventDefault();
-    fetch('http://localhost/api/v1/login/form', {
+    fetch('http://localhost:8080/api/v1/login/form', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -31,7 +31,6 @@ export default React.createClass({
     .then(response => {
       if (response.ok) {
         console.log('OK');
-        browserHistory.push('/abouts');
       } else {
         throw new Error(response);
       }
@@ -41,4 +40,5 @@ export default React.createClass({
       console.log('Ocurrio un error');
     });
   },
+
 });

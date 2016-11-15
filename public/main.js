@@ -21,9 +21,9 @@ render(
           <Route path="/abouts" component={Abouts}>
             <Route path="/abouts/:userName/:repoName" component={About}/>
           </Route>
-          
+
         */}
-          <Route path="/form" component={Form}>
+          <Route path="/login/form" component={Form}>
           </Route>
 
     </Route>
