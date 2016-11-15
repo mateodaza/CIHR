@@ -4,10 +4,10 @@ import { browserHistory } from 'react-router';
 
 export default React.createClass({
   render() {
-    return (
+    return (  
               <form onSubmit={this.handleSubmit}>
-                  Codigo: <input type="text" name="codigo" /> <br/><br/>
-                  Password: <input type="text" name="password" /> <br/><br/>
+                    Codigo: <input type="text" name="codigo" /> <br/><br/>
+                    Password: <input type="text" name="password" /> <br/><br/>
                 <button className='button button-blue' name="submit_button">
                     <b>submit</b>
                   </button>
