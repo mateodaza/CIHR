@@ -76,7 +76,7 @@ const Web = (server, options, next) => {
 };
 
 Web.attributes = {
-  name: 'api-registry',
+  name: 'web-registry',
   version: '0.0.1',
 };
 

@@ -1,12 +1,13 @@
 /* eslint-disable no-console */
 import React from 'react'
+import { browserHistory } from 'react-router';
 
 export default React.createClass({
   render() {
     return (
               <form onSubmit={this.handleSubmit}>
-                  Name: <input type="text" name="firstname" /> <br/><br/>
-                  LastName: <input type="text" name="lastname" /> <br/><br/>
+                  Codigo: <input type="text" name="codigo" /> <br/><br/>
+                  Password: <input type="text" name="password" /> <br/><br/>
                 <button className='button button-blue' name="submit_button">
                     <b>submit</b>
                   </button>
@@ -17,19 +18,20 @@ export default React.createClass({
 
   handleSubmit (evt) {
     evt.preventDefault();
-    fetch('http://localhost:8080/api/v1/example/form', {
+    fetch('http://localhost/api/v1/login/form', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        firstname: evt.target.firstname.value,
-        lastname: evt.target.lastname.value,
+        codigo: evt.target.codigo.value,
+        password: evt.target.password.value,
       }),
     })
     .then(response => {
       if (response.ok) {
         console.log('OK');
+        browserHistory.push('/abouts');
       } else {
         throw new Error(response);
       }
