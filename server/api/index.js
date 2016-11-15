@@ -3,6 +3,7 @@ const API = (server, options, next) => {
   const plugins = [
     require('./example'),
     require('./database'),
+    require('./login'),
   ];
 
   // ESTO DE ABAJO NO SE TOCA

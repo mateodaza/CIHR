@@ -13,7 +13,7 @@ const DatabasePlugin = (server, options, next) => {
     if (err) {
       return next(err);
     }
-    server.expose(connection);
+    server.expose('connection', connection);
     return next();
   });
 };

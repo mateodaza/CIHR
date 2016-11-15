@@ -7,6 +7,7 @@ class Example extends BasePlugin {
     super(server); // ESTAS DOS LINEAS SON NECESARIAS
     autobind(this); // ESTO ES NECESARIO
     this.server = server;
+    this.conn = server.plugins.database.connection;
   }
 
   /*
@@ -35,7 +36,7 @@ class Example extends BasePlugin {
   }
 
   exampleDBCall (request, reply) {
-    this.server.plugins.database.query({
+    this.conn.query({
       sql: 'SELECT funcionario_est FROM Funcionario WHERE funcionario_cod=? AND funcionario_pwd=?;',
       timeout: 5000,
       values: ['200045678', '123456'],
