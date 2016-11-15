@@ -21,15 +21,18 @@ class Login extends BasePlugin {
         return;
       }
       if (rows.length === 0) {
+        console.log("El usuario no existe");
         reply(new Error('El usuario no existe'));
         return;
       }
       const user = rows[0];
       if (user.funcionario_est === 0) {
-        reply(new Error('el usuario no puede logear'));
+        console.log("El usuario no puede logear");
+        reply(new Error('El usuario no puede logear'));
         return;
       }
-      reply(null, 'EL usuario puede logear');
+      console.log("El usuario puede logear");
+      reply(null, 'El usuario puede logear');
       return;
     });
   }
